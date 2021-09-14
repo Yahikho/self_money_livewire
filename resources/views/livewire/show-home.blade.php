@@ -13,7 +13,7 @@
                             <option value="{{ $tipoIngreso->id }}">{{ $tipoIngreso->descripcion }}</option>
                         @endforeach
                     </select>
-                    <a class="my-2 underline font-bold" href=" {{ route('show.tipo-ingreso') }} ">Ver tipo ingresos</a>
+                    <a class="my-2 underline font-bold" href=" {{ route('render.tipo-ingreso') }} ">Ver tipo ingresos</a>
                     <x-jet-button class="mt-2">
                         Guardar
                     </x-jet-button>

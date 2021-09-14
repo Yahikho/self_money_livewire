@@ -15,7 +15,7 @@ class CreateTipoIngresosTable extends Migration
     {
         Schema::create('tipo_ingresos', function (Blueprint $table) {
             $table->id();
-            $table->string('descripcion');
+            $table->string('descripcion')->unique();
             $table->timestamps();
         });
     }
