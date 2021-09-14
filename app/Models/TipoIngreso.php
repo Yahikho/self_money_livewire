@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class TipoIngreso extends Model
 {
     use HasFactory;
-    protected $fillable = ['descripcion'];
+    protected $fillable = ['descripcion', 'user_id'];
 }

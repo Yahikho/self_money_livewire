@@ -11,8 +11,13 @@ class TipoIngreso extends Component
     use WithPagination;
 
     public $tipoIngreso;
-    public $search = "";
-    public $open_modal = false;
+    public $nuevoTipoIngreso;
+    public $search = '';
+    public $open_modal_edit = false;
+
+    public $descripcion = '';
+
+    protected $listeners = ['render' => 'render'];
 
     protected $rules = [
         'tipoIngreso.descripcion' => 'required'
@@ -24,13 +29,13 @@ class TipoIngreso extends Component
 
     public function edit(ModelsTipoIngreso $tipoIngreso){
         $this->tipoIngreso = $tipoIngreso;
-        $this->open_modal = true;
+        $this->open_modal_edit = true;
     }
 
     public function update(){
         $this->validate();
         $this->tipoIngreso->save();
-        $this->reset(['open_modal']);
+        $this->reset(['open_modal_edit']);
     }
 
     public function delete(ModelsTipoIngreso $tipoIngreso){
@@ -38,7 +43,8 @@ class TipoIngreso extends Component
     }
 
     public function render(){
-        $tipoIngresos = ModelsTipoIngreso::where('descripcion', 'like', "%" . $this->search . "%" )->paginate(5);
+
+        $tipoIngresos = ModelsTipoIngreso::where('descripcion', 'like', '%' . $this->search . '%' )->latest()->paginate(5);
 
         return view('livewire.tipo-ingreso', compact('tipoIngresos'));
     }

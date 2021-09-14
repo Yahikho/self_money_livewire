@@ -27,7 +27,7 @@ Route::get('/', function () {
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/', [ShowHome::class, 'show'])->name('data.show');
-    Route::get('tipo-ingreso', TipoIngreso::class)->name('render.tipo-ingreso');
-    Route::get('tipo-egreso', TipoEgreso::class);
+    Route::get('tipo-ingresos', TipoIngreso::class)->name('render.tipo-ingresos');
+    Route::get('tipo-egresos', TipoEgreso::class)->name('render.tipo-egresos');
 
 });

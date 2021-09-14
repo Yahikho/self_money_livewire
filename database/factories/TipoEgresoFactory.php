@@ -22,7 +22,8 @@ class TipoEgresoFactory extends Factory
     public function definition()
     {
         return [
-            'descripcion' => $this->faker->unique()->word()
+            'descripcion' => $this->faker->unique()->word(),
+            'user_id' => 1
         ];
     }
 }
