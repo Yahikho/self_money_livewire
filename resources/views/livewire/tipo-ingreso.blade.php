@@ -1,10 +1,13 @@
 <x-app-layout>
-    <div class="container">
-        <x-jet-input type="text" wire:model="search" class="mt-12 w-full" placeholder="Ingrese dato de busqueda" >
-            
-        </x-jet-input>
-        <p wire:model="$search"></p>
-        {{ $search }}
+    <div class="container flex items-center mt-12">
+        <div class="flex-1">
+            <x-jet-input type="text" wire:model="search" class="w-full" placeholder="Ingrese dato de busqueda" />
+        </div>
+        <div>
+            <x-jet-button class="ml-2">
+                Crear nuevo Tipo Ingreso
+            </x-jet-button>
+        </div>
     </div>
     <x-table>
         <table class="min-w-full divide-y divide-gray-200">
@@ -46,4 +49,14 @@
             </tbody>
         </table>
     </x-table>
+    <x-jet-dialog-modal>
+        <x-slot name="title">
+            Editar colores
+        </x-slot>
+        <x-slot name="content">
+            <x-jet-input placelholder="Ingrese nueva descripción" />
+        </x-slot>
+        <x-slot name="footer">  
+        </x-slot>
+    </x-jet-dialog-modal>
 </x-app-layout>

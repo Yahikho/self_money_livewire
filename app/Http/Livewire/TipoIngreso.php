@@ -8,12 +8,13 @@ use Livewire\Component;
 class TipoIngreso extends Component
 {
 
-    public $search = "hola";
+    public $search = "reiciend";
 
     public function show()
     {
 
-        $tipoIngresos = ModelsTipoIngreso::all();
+        $tipoIngresos = ModelsTipoIngreso::where('descripcion', 'like', "%" .$this->search. "%")->get();
+
         return view('livewire.tipo-ingreso', compact('tipoIngresos'));
 
     }
