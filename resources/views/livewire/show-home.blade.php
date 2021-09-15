@@ -13,8 +13,12 @@
                             <option value="{{ $tipoIngreso->id }}">{{ $tipoIngreso->descripcion }}</option>
                         @endforeach
                     </select>
+<<<<<<< HEAD
                     <a class="my-2 underline font-bold" href=" {{ route('render.tipo-ingresos') }} ">Ver tipos de
                         Ingresos</a>
+=======
+                    <a class="my-2 underline font-bold" href=" {{ route('render.tipo-ingresos') }} ">Ver tipos de Ingresos</a>
+>>>>>>> ad02cbb346a8a56b7059ceb3b2d5c5edc4a8e57d
                     <x-jet-button class="mt-2">
                         Guardar
                     </x-jet-button>
@@ -32,8 +36,7 @@
                             <option value="{{ $tipoEgreso->id }}">{{ $tipoEgreso->descripcion }}</option>
                         @endforeach
                     </select>
-                    <a class="my-2 underline font-bold" href=" {{ route('render.tipo-egresos') }} ">Ver tipos de
-                        Egresos</a>
+                    <a class="my-2 underline font-bold" href=" {{ route('render.tipo-egresos') }} ">Ver tipos de Egresos</a>
                     <x-jet-button class="mt-2">
                         Guardar
                     </x-jet-button>
