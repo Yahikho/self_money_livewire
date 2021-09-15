@@ -10,7 +10,10 @@ use Livewire\Component;
 
 class ShowHome extends Component
 {
-    public function show()
+
+    protected $listeners = ['render' => 'render'];
+
+    public function render()
     {
         $user = auth()->user()->id;
 

@@ -17,6 +17,7 @@ class CrearTipoEgreso extends Component
 
     public function save(){
         $this->validate();
+        
         TipoEgreso::create([
             'descripcion' => $this->descripcion,
             'user_id' => auth()->user()->id

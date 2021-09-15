@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('data.show') }}">
+                    <a href="{{ route('render.show') }}">
                         <x-jet-label>
                             Bienvenido a<span class="font-bold"> Self Money</span>
                         </x-jet-label>

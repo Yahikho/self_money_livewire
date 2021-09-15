@@ -20,7 +20,7 @@ class CreateEgresosTable extends Migration
             $table->unsignedBigInteger('id_tipo_egreso');
             $table->foreign('id_tipo_egreso')->references('id')->on('tipo_egresos');
 
-            $table->string('observaciones');
+            $table->string('observaciones')->nullable();
 
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
