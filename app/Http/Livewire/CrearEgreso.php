@@ -11,10 +11,12 @@ class CrearEgreso extends Component
     public $valor;
     public $observaciones;
     public $idTipoEgreso = '';
+    public $fechaRegitro;
 
     protected $rules = [
         'valor' => 'required|numeric|min:1',
-        'idTipoEgreso' => 'required'
+        'idTipoEgreso' => 'required',
+        'fechaRegitro' => 'required'
     ];
 
     public function save(){
@@ -22,8 +24,9 @@ class CrearEgreso extends Component
 
         Egreso::create([
             'valor' => $this->valor,
-            'observaciones' => $this->observaciones,
             'id_tipo_egreso' => $this->idTipoEgreso,
+            'fecha_registro' => $this->fechaRegitro,
+            'observaciones' => $this->observaciones,
             'user_id' => auth()->user()->id
         ]);
 

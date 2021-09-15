@@ -24,6 +24,7 @@ class EgresoFactory extends Factory
         return [
             'valor' => $this->faker->numberBetween($min = 1000, $max = 10000),
             'id_tipo_egreso' => $this->faker->numberBetween($min = 1, $max = 10),
+            'fecha_registro' => $this->faker->date(),
             'observaciones' => $this->faker->text(),
             'user_id' => 1
         ];

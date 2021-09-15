@@ -9,5 +9,5 @@ class Egreso extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['valor','observaciones','id_tipo_egreso','user_id'];
+    protected $fillable = ['valor','observaciones','fecha_registro','id_tipo_egreso','user_id'];
 }

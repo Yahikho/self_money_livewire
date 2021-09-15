@@ -20,6 +20,8 @@ class CreateIngresosTable extends Migration
             $table->unsignedBigInteger('id_tipo_ingreso');
             $table->foreign('id_tipo_ingreso')->references('id')->on('tipo_ingresos');
 
+            $table->date('fecha_registro');
+
             $table->string('observaciones')->nullable();
 
             $table->unsignedBigInteger('user_id');

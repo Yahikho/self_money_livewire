@@ -16,6 +16,10 @@
             @endforeach
         </select>
 
+        <div class="mt-2">
+            <input type="date" class="text-area" wire:model="fechaRegitro">
+        </div>
+
         <a class="my-2 underline font-bold" href=" {{ route('render.tipo-egresos') }} ">Ver tipos de Egresos</a>
         
         <x-jet-input-error for="valor" />
