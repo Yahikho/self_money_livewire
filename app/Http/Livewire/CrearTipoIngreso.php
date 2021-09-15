@@ -27,6 +27,7 @@ class CrearTipoIngreso extends Component
         $this->reset(['descripcion','open_modal_create']);
 
         $this->emitTo('tipo-ingreso', 'render');
+        $this->emitTo('show-home', 'render');
     }
 
     public function render()
