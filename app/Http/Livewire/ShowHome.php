@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Egreso;
+use App\Models\Ingreso;
 use App\Models\TipoEgreso;
 use App\Models\TipoIngreso;
 use Livewire\Component;
@@ -10,9 +12,12 @@ class ShowHome extends Component
 {
     public function show()
     {
+        $user = auth()->user()->id;
+
         $data = [ 
-            'tipoIngreso' => TipoIngreso::all(),
-            'tipoEgreso' => TipoEgreso::all()
+            'saldo'=> (Ingreso::where('user_id','=', $user)->sum('valor') - Egreso::where('user_id','=', $user )->sum('valor')),
+            'tipoIngresos' => TipoIngreso::where('user_id', '=', $user)->latest()->get(),
+            'tipoEgresos' => TipoEgreso::where('user_id', '=', $user)->latest()->get()
          ];
 
         return view('livewire.show-home', compact('data'));

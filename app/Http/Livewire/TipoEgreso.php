@@ -21,6 +21,10 @@ class TipoEgreso extends Component
         'tipoEgreso.descripcion' => 'required'
     ];
 
+    public function updatingSearch(){
+        $this->resetPage();
+    }
+
     public function edit(ModelsTipoEgreso $tipoEgreso){
         $this->tipoEgreso = $tipoEgreso;
         $this->open_modal = true;
@@ -41,6 +45,7 @@ class TipoEgreso extends Component
                                         ->where('user_id', '=' , auth()->user()->id)
                                         ->latest()
                                         ->paginate(5);
+
         return view('livewire.tipo-egreso', compact('tipoEgresos'));
     }
 

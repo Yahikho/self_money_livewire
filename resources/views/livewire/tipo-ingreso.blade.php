@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-<x-app-layout>
-    <div class="container flex items-center mt-12">
-        <div class="flex-1">
-            <x-jet-input type="text" wire:model="search" class="w-full" placeholder="Ingrese dato de busqueda" />
-        </div>
-        <div>
-            <x-jet-button class="ml-2">
-                Crear nuevo Tipo Ingreso
-            </x-jet-button>
-=======
 <div>
     <div class="container">
         <div class="bg-white w-full py-5 h-5 mt-5 rounded-lg shadow-lg flex items-center">
@@ -17,7 +6,6 @@
         <div class="pt-5 px-5 flex items-center ">
             <x-jet-input type="text" wire:model="search" class="flex-1" placeholder="Ingrese dato de busqueda" />
             @livewire('crear-tipo-ingreso')
->>>>>>> ad02cbb346a8a56b7059ceb3b2d5c5edc4a8e57d
         </div>
     </div>
     @if (count($tipoIngresos))
