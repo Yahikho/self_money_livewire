@@ -31,30 +31,61 @@
         <div class="grid grid-cols-3 gap-3 container">
             <div class="bg-white shadow-lg text-center rounded-lg py-2">
                 <x-jet-label class="pt-2 font-bold" value="Ultimos Ingresos" />
-                <div class="p-2">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Fecha</th>
-                                <th>Tipo Ingresos</th>
-                                <th>Valor </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($data['ingresos'] as $ingreso)
+                <div class="p-2 container">
+                    @if (count($data['ingresos']))
+                        <table class="w-full">
+                            <thead class="bg-gray-500">
                                 <tr>
-                                    <td>{{$ingreso->created_at}}</td>
-                                    <td>{{$ingreso->descripcion}}</td>
-                                    <td>{{$ingreso->valor}}</td>
+                                    <th>Fecha</th>
+                                    <th>Tipo Ingresos</th>
+                                    <th>Valor </th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach ($data['ingresos'] as $ingreso)
+                                    <tr>
+                                        <td>{{ $ingreso->fecha_registro }}</td>
+                                        <td>{{ $ingreso->descripcion }}</td>
+                                        <td>{{ $ingreso->valor }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        <a class="my-2 underline font-bold" href=" {{ route('render.tipo-ingresos') }} ">Ver todos los
+                            Ingresos</a>
+                    @else
+                        <p class="font-semibold text-gray-400">No hay datos de Ingresos</p>
+                    @endif
                 </div>
-                <a class="my-2 underline font-bold" href=" {{ route('render.tipo-ingresos') }} ">Ver todos los Ingresos</a>
             </div>
-            <div class="bg-white shadow-lg text-center rounded-lg">
-                test
+            <div class="bg-white shadow-lg text-center rounded-lg py-2">
+                <x-jet-label class="pt-2 font-bold" value="Ultimos Egresos" />
+                <div class="p-2 container">
+                    @if (count($data['egresos']))
+                        <table class="w-full">
+                            <thead class="bg-gray-500">
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Tipo Egreso</th>
+                                    <th>Valor </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($data['egresos'] as $egreso)
+                                    <tr>
+                                        <td>{{ $egreso->fecha_registro }}</td>
+                                        <td>{{ $egreso->descripcion }}</td>
+                                        <td>{{ $egreso->valor }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        <a class="my-2 underline font-bold" href=" {{ route('render.tipo-ingresos') }} ">Ver todos los
+                            Ingresos</a>
+                    @else
+                        <p class="font-semibold text-gray-400">No hay datos de Egresos</p>
+                    @endif
+                </div>
             </div>
             <div class="bg-white shadow-lg text-center rounded-lg">
                 test

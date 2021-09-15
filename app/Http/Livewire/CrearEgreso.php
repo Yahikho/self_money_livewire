@@ -30,7 +30,7 @@ class CrearEgreso extends Component
             'user_id' => auth()->user()->id
         ]);
 
-        $this->reset(['valor','observaciones', 'idTipoEgreso']);
+        $this->reset(['valor','observaciones', 'idTipoEgreso', 'fechaRegitro']);
 
         $this->emitTo('show-home', 'render');
     }

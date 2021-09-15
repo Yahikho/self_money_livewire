@@ -8,8 +8,8 @@
             @livewire('crear-tipo-ingreso')
         </div>
     </div>
-    @if (count($tipoIngresos))
-        <x-table>
+    <x-table>
+        @if (count($tipoIngresos))
             <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
                     <tr>
@@ -19,9 +19,11 @@
                         </th>
                         <th scope="col"
                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Editar
                         </th>
                         <th scope="col"
                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Eliminar
                         </th>
                     </tr>
                 </thead>
@@ -46,19 +48,16 @@
                     @endforeach
                 </tbody>
             </table>
-
             @if ($tipoIngresos->hasPages())
                 <div class="px-6 py-3">
                     {{ $tipoIngresos->links() }}
                 </div>
             @endif
         @else
-
             <div class="px-6 py-3">
-                No hay registros que coincidan
+                No hay registros
             </div>
-
-    @endif
+        @endif
     </x-table>
 
 

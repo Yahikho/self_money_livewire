@@ -15,7 +15,7 @@ class CreateIngresosTable extends Migration
     {
         Schema::create('ingresos', function (Blueprint $table) {
             $table->id();
-            $table->float('valor');
+            $table->bigInteger('valor');
 
             $table->unsignedBigInteger('id_tipo_ingreso');
             $table->foreign('id_tipo_ingreso')->references('id')->on('tipo_ingresos');

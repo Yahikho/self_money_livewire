@@ -8,7 +8,7 @@
             Registrar Tipo de Egreso
         </x-slot>
         <x-slot name="content">
-            <x-jet-label class="pt-2 font-bold" value="😁 Resgitre el nuevo Tipo Ingreso 😁" />
+            <x-jet-label class="pt-2 font-bold" value="😨 Resgitre el nuevo Tipo Egreso 😨" />
             <x-jet-input type="text" wire:model="descripcion" class="mt-2 w-full" placeholder="Digite tipo ingreso" />
             <x-jet-input-error for="descripcion" />
         </x-slot>

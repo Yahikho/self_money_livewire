@@ -9,62 +9,67 @@
         </div>
     </div>
     <x-table>
-        <table class="min-w-full divide-y divide-gray-200">
-            <thead class="bg-gray-50">
-                <tr>
-                    <th scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Descripcion
-                    </th>
-                    <th scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    </th>
-                    <th scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    </th>
-                </tr>
-            </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
-                @foreach ($tipoEgresos as $tipoEgreso)
+        @if (count($tipoEgresos))
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
                     <tr>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            <div class="text-sm text-gray-900">{{ $tipoEgreso->descripcion }}</div>
-                            <div class="text-sm text-gray-500">{{ $tipoEgreso->updated_at }}</div>
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            <x-jet-button wire:click="edit( {{ $tipoEgreso }} )">
-                                Editar
-                            </x-jet-button>
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            <x-button-danger wire:click="delete({{ $tipoEgreso }})" wire:loading.attr="disabled">
-                                Eliminar
-                            </x-button-danger>
-                        </td>
+                        <th scope="col"
+                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Descripcion
+                        </th>
+                        <th scope="col"
+                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Editar
+                        </th>
+                        <th scope="col"
+                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Eliminar
+                        </th>
                     </tr>
-                @endforeach
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    @foreach ($tipoEgresos as $tipoEgreso)
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm text-gray-900">{{ $tipoEgreso->descripcion }}</div>
+                                <div class="text-sm text-gray-500">{{ $tipoEgreso->updated_at }}</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <x-jet-button wire:click="edit( {{ $tipoEgreso }} )">
+                                    Editar
+                                </x-jet-button>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                <x-button-danger wire:click="delete({{ $tipoEgreso }})" wire:loading.attr="disabled">
+                                    Eliminar
+                                </x-button-danger>
+                            </td>
+                        </tr>
+                    @endforeach
 
-                <!-- More people... -->
-            </tbody>
-        </table>
-        @if ($tipoEgresos->hasPages())
-            <div class="px-6 py-3">
-                {{ $tipoEgresos->links() }}
-            </div>
+                    <!-- More people... -->
+                </tbody>
+            </table>
+            @if ($tipoEgresos->hasPages())
+                <div class="px-6 py-3">
+                    {{ $tipoEgresos->links() }}
+                </div>
+            @endif
         @else
             <div class="px-6 py-3">
-                No hay registros que coincidan
+                No hay registros
             </div>
         @endif
     </x-table>
-    
+
     <x-jet-dialog-modal wire:model="open_modal">
         <x-slot name="title">
             Editar el Tipo de Egreso
         </x-slot>
         <x-slot name="content">
-            <x-jet-label class="pt-2 font-bold" value="😁 Resgitre el nuevo Tipo de Egreso 😁" />
-            <x-jet-input wire:model="tipoEgreso.descripcion" type="text" class="mt-2 w-full" placeholder="Digite nuevo tipo egreso" />
+            <x-jet-label class="pt-2 font-bold" value="😨 Resgitre la nueva descripción de Tipo de Egreso 😨" />
+            <x-jet-input wire:model="tipoEgreso.descripcion" type="text" class="mt-2 w-full"
+                placeholder="Digite nuevo tipo egreso" />
         </x-slot>
         <x-slot name="footer">
             <x-jet-button wire:click="update" wire:loading.attr="disabled">

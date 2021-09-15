@@ -44,7 +44,10 @@ class TipoIngreso extends Component
 
     public function render(){
 
-        $tipoIngresos = ModelsTipoIngreso::where('descripcion', 'like', '%' . $this->search . '%' )->latest()->paginate(5);
+        $tipoIngresos = ModelsTipoIngreso::where('descripcion', 'like', '%' . $this->search . '%' )
+                                            ->where('user_id', '=', auth()->user()->id)
+                                            ->latest()
+                                            ->paginate(5);
 
         return view('livewire.tipo-ingreso', compact('tipoIngresos'));
     }

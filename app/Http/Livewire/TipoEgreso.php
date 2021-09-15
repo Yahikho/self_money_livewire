@@ -41,6 +41,7 @@ class TipoEgreso extends Component
                                         ->where('user_id', '=' , auth()->user()->id)
                                         ->latest()
                                         ->paginate(5);
+                                        
         return view('livewire.tipo-egreso', compact('tipoEgresos'));
     }
 

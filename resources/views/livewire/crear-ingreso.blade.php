@@ -25,6 +25,7 @@
         
         <x-jet-input-error for="valor" />
         <x-jet-input-error for="idTipoIngreso" />
+        <x-jet-input-error for="fechaRegitro" />
         
         <x-jet-button class="mt-2" wire:click="save">
             Guardar
