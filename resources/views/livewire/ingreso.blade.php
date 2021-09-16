@@ -50,7 +50,7 @@
                                     Editar
                                 </x-jet-button>
 
-                                <x-button-danger wire:click="delete({{ $ingreso->id }})">
+                                <x-button-danger wire:click="delete({{ $ingreso->id }})" wire:loading.attr="disabled" wiere:target="delete({{ $ingreso->id }})">
                                     Eliminar
                                 </x-button-danger>
                             </td>

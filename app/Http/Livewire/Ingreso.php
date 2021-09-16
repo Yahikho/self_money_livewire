@@ -20,7 +20,7 @@ class Ingreso extends Component
     protected $listeners = ['render', 'render'];
 
     protected $rules = [
-        'ingreso.valor' => 'required',
+        'ingreso.valor' => 'required|min:1',
         'ingreso.observaciones' => 'required',
         'ingreso.id_tipo_ingreso' => 'required',
         'ingreso.fecha_registro' => 'required'
@@ -45,7 +45,7 @@ class Ingreso extends Component
         $this->ingreso->save();
         $this->reset('open_modal');
 
-        $this->emitTo('ingreso','render');
+        $this->emit('render');
     }
 
     public function render()

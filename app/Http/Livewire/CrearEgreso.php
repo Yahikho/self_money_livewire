@@ -16,7 +16,8 @@ class CrearEgreso extends Component
     protected $rules = [
         'valor' => 'required|numeric|min:1',
         'idTipoEgreso' => 'required',
-        'fechaRegitro' => 'required'
+        'fechaRegitro' => 'required',
+        'observaciones' => 'max:20'
     ];
 
     public function save(){
