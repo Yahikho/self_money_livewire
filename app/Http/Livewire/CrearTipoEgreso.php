@@ -26,7 +26,6 @@ class CrearTipoEgreso extends Component
         $this->reset(['descripcion', 'open_modal_create']);
 
         $this->emitTo('tipo-egreso', 'render');
-        $this->emitTo('show-home', 'render');
     }
 
     public function render()

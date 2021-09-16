@@ -44,12 +44,15 @@
                                 <div class="text-sm text-gray-900">{{ $ingreso->observaciones }}</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                <div class="flex gap-1">
-                                    @livewire('editar-ingreso', ['ingreso' => $ingreso->id])
-                                    <x-button-danger>
-                                        Eliminar
-                                    </x-button-danger>
-                                </div>
+
+                                {{-- @livewire('editar-ingreso', ['ingreso' => $ingreso->id]) --}}
+                                <x-jet-button wire:click="edit({{ $ingreso->id }})">
+                                    Editar
+                                </x-jet-button>
+
+                                <x-button-danger wire:click="delete({{ $ingreso->id }})">
+                                    Eliminar
+                                </x-button-danger>
                             </td>
                         </tr>
                     @endforeach
@@ -66,4 +69,36 @@
             </div>
         @endif
     </x-table>
+
+    <x-jet-dialog-modal wire:model="open_modal">
+        <x-slot name="title">
+            Editar Ingreso
+        </x-slot>
+        <x-slot name="content">
+            <div class="my-2 flex flex-col items-center">
+                <x-jet-input wire:model="ingreso.valor" type="number" class="mt-2 w-full" />
+                <textarea class="text-area mt-2 w-full" wire:model="ingreso.observaciones" placeholder="Ingrese Observación"></textarea>
+                <select class="text-area mt-2 w-full" name="" id="" wire:model="ingreso.id_tipo_ingreso">
+                    <option value="" selected disabled>Seleccione tipo ingreso</option>
+                    @foreach ($tipoIngresos as $tipoIngreso)
+                        <option value="{{ $tipoIngreso->id }}">{{ $tipoIngreso->descripcion }}</option>
+                    @endforeach
+
+                </select>
+                <div class="mt-2">
+                    <input type="date" class="text-area" wire:model="ingreso.fecha_registro">
+                </div>
+
+            </div>
+        </x-slot>
+        <x-slot name="footer">
+            <x-jet-button wire:click="upgrade">
+                Actualizar
+            </x-jet-button>
+            <x-jet-button wire:click="$set('open_modal', false)">
+                Cancelar
+            </x-jet-button>
+        </x-slot>
+    </x-jet-dialog-modal>
+
 </div>

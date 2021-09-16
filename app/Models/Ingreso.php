@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Ingreso extends Model
 {
     use HasFactory;
+
     protected $fillable = ['valor','observaciones','id_tipo_ingreso','fecha_registro','user_id'];
+
 
 }

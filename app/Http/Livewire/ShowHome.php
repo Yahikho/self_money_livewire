@@ -30,6 +30,7 @@ class ShowHome extends Component
                                     ->orderBy('fecha_registro', 'desc')
                                     ->take(6)
                                     ->get(),
+                                    
             'egresos' => DB::table('egresos')
                                     ->join('tipo_egresos','egresos.id_tipo_egreso', '=', 'tipo_egresos.id')
                                     ->select('egresos.fecha_registro', 'tipo_egresos.descripcion', 'egresos.valor')
