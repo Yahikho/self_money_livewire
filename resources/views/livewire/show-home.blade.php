@@ -51,7 +51,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        <a class="my-2 underline font-bold" href=" {{ route('render.tipo-ingresos') }} ">Ver todos los
+                        <a class="my-2 underline font-bold" href=" {{ route('ingresos') }} ">Ver todos los
                             Ingresos</a>
                     @else
                         <p class="font-semibold text-gray-400">No hay datos de Ingresos</p>
@@ -80,7 +80,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        <a class="my-2 underline font-bold" href=" {{ route('render.tipo-ingresos') }} ">Ver todos los
+                        <a class="my-2 underline font-bold" href=" {{ route('tipo-ingresos') }} ">Ver todos los
                             Ingresos</a>
                     @else
                         <p class="font-semibold text-gray-400">No hay datos de Egresos</p>

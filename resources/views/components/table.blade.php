@@ -1,4 +1,4 @@
-<div class="py-12 container">
+<div class="py-5 container">
     <!-- This example requires Tailwind CSS v2.0+ -->
     <div class="flex flex-col">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">

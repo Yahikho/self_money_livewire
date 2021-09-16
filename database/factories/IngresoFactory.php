@@ -25,7 +25,7 @@ class IngresoFactory extends Factory
             'valor' => $this->faker->numberBetween($min = 1000, $max = 10000),
             'id_tipo_ingreso' => $this->faker->numberBetween($min = 1, $max = 10),
             'fecha_registro' => $this->faker->date(),
-            'observaciones' => $this->faker->text(),
+            'observaciones' => $this->faker->word(),
             'user_id' => 1
         ];
     }
