@@ -8,7 +8,7 @@
         </x-slot>
         <x-slot name="content">
             <x-jet-label class="pt-2 font-bold" value="😨 Resgitre el nuevo Tipo Egreso 😨" />
-            <x-jet-input type="text" wire:model="ingreso.valor" class="mt-2 w-full" placeholder="Digite tipo ingreso" />
+            <x-jet-input wire:model="ingreso.valor" type="text" class="mt-2 w-full" />
             {{ $ingreso }}
             <x-jet-input-error for="ingreso.valor" />
         </x-slot>

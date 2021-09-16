@@ -45,7 +45,7 @@
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                 <div class="flex gap-1">
-                                    @livewire('editar-ingreso')
+                                    @livewire('editar-ingreso', ['ingreso' => $ingreso->id])
                                     <x-button-danger>
                                         Eliminar
                                     </x-button-danger>

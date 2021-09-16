@@ -11,12 +11,8 @@ class EditarIngreso extends Component {
     public $ingreso;
 
     protected $rules = [
-        'ingreso.valor' => 'required'
+        
     ];
-
-    public function mount(Ingreso $ingreso){
-        $this->ingreso = $ingreso;
-    }
 
     public function save(){
         
