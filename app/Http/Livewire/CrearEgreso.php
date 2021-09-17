@@ -13,6 +13,8 @@ class CrearEgreso extends Component
     public $idTipoEgreso = '';
     public $fechaRegitro;
 
+    protected $listeners = ['save'];
+
     protected $rules = [
         'valor' => 'required|numeric|min:1',
         'idTipoEgreso' => 'required',

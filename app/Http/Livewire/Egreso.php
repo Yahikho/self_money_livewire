@@ -18,7 +18,7 @@ class Egreso extends Component
     public $egreso;
     public $tipoEgresos = [];
 
-    protected $listeners = ['render', 'render'];
+    protected $listeners = ['render', 'delete'];
 
     protected $rules = [
         'egreso.valor' => 'required|min:1',

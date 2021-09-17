@@ -87,8 +87,11 @@
                 </div>
             </div>
             <div class="bg-white shadow-lg text-center rounded-lg">
-                test
+                <div id="element" class=""></div>
             </div>
         </div>
     </div>
+
+    <script src="{{ asset('js/fraseApi.js') }}"></script>
+
 </div>

@@ -50,7 +50,8 @@
                                     Editar
                                 </x-jet-button>
 
-                                <x-button-danger wire:click="delete({{ $ingreso->id }})" wire:loading.attr="disabled" wiere:target="delete({{ $ingreso->id }})">
+                                <x-button-danger wire:click="$emit('destroy', {{ $ingreso->id }})" wire:loading.attr="disabled"
+                                    wiere:target="destroy({{ $ingreso->id  }})">
                                     Eliminar
                                 </x-button-danger>
                             </td>
@@ -77,7 +78,8 @@
         <x-slot name="content">
             <div class="my-2 flex flex-col items-center">
                 <x-jet-input wire:model="ingreso.valor" type="number" class="mt-2 w-full" />
-                <textarea class="text-area mt-2 w-full" wire:model="ingreso.observaciones" placeholder="Ingrese Observación"></textarea>
+                <textarea class="text-area mt-2 w-full" wire:model="ingreso.observaciones"
+                    placeholder="Ingrese Observación"></textarea>
                 <select class="text-area mt-2 w-full" name="" id="" wire:model="ingreso.id_tipo_ingreso">
                     <option value="" selected disabled>Seleccione tipo ingreso</option>
                     @foreach ($tipoIngresos as $tipoIngreso)
@@ -100,5 +102,34 @@
             </x-jet-button>
         </x-slot>
     </x-jet-dialog-modal>
+
+    @push('js')
+
+        <script>
+            Livewire.on('destroy', idIngreso => {
+                Swal.fire({
+                    title: '¿Esta segur@?',
+                    text: "No puedes revertir los cambios",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Eliminar',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+
+                        Livewire.emitTo('ingreso', 'delete', idIngreso)
+
+                        Swal.fire(
+                            'Eliminado!',
+                            'Ingreso eliminado.',
+                            'success'
+                        )
+                    }
+                })
+            })
+        </script>
+    @endpush
 
 </div>

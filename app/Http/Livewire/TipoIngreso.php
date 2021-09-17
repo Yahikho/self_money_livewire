@@ -17,7 +17,7 @@ class TipoIngreso extends Component
 
     public $descripcion = '';
 
-    protected $listeners = ['render' => 'render'];
+    protected $listeners = ['render' => 'render', 'delete'];
 
     protected $rules = [
         'tipoIngreso.descripcion' => 'required'

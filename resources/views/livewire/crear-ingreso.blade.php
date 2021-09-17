@@ -22,15 +22,32 @@
         </div>
 
         <a class="my-2 underline font-bold" href=" {{ route('tipo-ingresos') }} ">Ver tipos de Ingresos</a>
-        
+
         <x-jet-input-error for="valor" />
         <x-jet-input-error for="idTipoIngreso" />
         <x-jet-input-error for="fechaRegitro" />
-        
-        <x-jet-button class="mt-2" wire:click="save">
+
+        <x-jet-button class="mt-2" wire:click="$emit('createIngreso')">
             Guardar
         </x-jet-button>
 
     </div>
+
+    @push('js')
+        <script>
+            Livewire.on('createIngreso', () => {
+
+                Livewire.emitTo('crear-ingreso','save')
+
+                Swal.fire({
+                    position: 'top-center',
+                    icon: 'success',
+                    title: 'Ingreso Guardado',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            })
+        </script>
+    @endpush
 
 </div>
