@@ -17,7 +17,8 @@ class CrearIngreso extends Component
     protected $rules = [
         'idTipoIngreso' => 'required',
         'valor' => 'required|numeric|min:1',
-        'fechaRegitro' => 'required'
+        'fechaRegitro' => 'required',
+        'observacion' => 'max:20'
     ];
 
     public function save(){

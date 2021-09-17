@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\Egreso;
 use App\Http\Livewire\Ingreso;
 use App\Http\Livewire\ShowHome;
 use App\Http\Livewire\TipoEgreso;
@@ -31,5 +32,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('tipo-ingresos', TipoIngreso::class)->name('tipo-ingresos');
     Route::get('tipo-egresos', TipoEgreso::class)->name('tipo-egresos');
     Route::get('ingresos', Ingreso::class)->name('ingresos');
+    Route::get('egresos', Egreso::class)->name('egresos');
 
 });

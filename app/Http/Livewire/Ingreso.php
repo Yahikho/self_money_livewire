@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Ingreso as ModelsIngreso;
+use App\Models\TipoIngreso;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -12,9 +14,38 @@ class Ingreso extends Component
 
     public $search;
     public $open_modal = false;
+    public $ingreso;
+    public $tipoIngresos = [];
+
+    protected $listeners = ['render', 'render'];
+
+    protected $rules = [
+        'ingreso.valor' => 'required|min:1',
+        'ingreso.observaciones' => 'required',
+        'ingreso.id_tipo_ingreso' => 'required',
+        'ingreso.fecha_registro' => 'required'
+    ];
 
     public function updatingSearch(){
         $this->resetPage();
+    }
+
+    public function delete(ModelsIngreso $ingreso){
+        $ingreso->delete();
+    }
+
+    public function edit(ModelsIngreso $ingreso){
+        $this->tipoIngresos = TipoIngreso::all();
+        $this->ingreso = $ingreso;
+        $this->open_modal = true;
+    }
+
+    public function upgrade(){
+
+        $this->ingreso->save();
+        $this->reset('open_modal');
+
+        $this->emit('render');
     }
 
     public function render()
@@ -28,9 +59,5 @@ class Ingreso extends Component
                                     ->paginate(10);
 
         return view('livewire.ingreso', compact('ingresos'));
-    }
-
-    public function save(){
-
     }
 }

@@ -1,14 +1,14 @@
 <div>
     <div class="container">
         <div class="bg-white w-full py-5 h-5 mt-5 rounded-lg shadow-lg flex items-center">
-            <p class="text-gray-500 mx-auto font-bold">Ingresos</p>
+            <p class="text-gray-500 mx-auto font-bold">Egresos</p>
         </div>
         <div class="pt-5 px-5 flex items-center ">
             <x-jet-input type="text" wire:model="search" class="flex-1" placeholder="Ingrese dato de busqueda" />
         </div>
     </div>
     <x-table>
-        @if (count($ingresos))
+        @if (count($egresos))
             <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
                     <tr>
@@ -31,26 +31,26 @@
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                    @foreach ($ingresos as $ingreso)
+                    @foreach ($egresos as $egreso)
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900">{{ $ingreso->descripcion }}</div>
-                                <div class="text-sm text-gray-500">{{ $ingreso->fecha_registro }}</div>
+                                <div class="text-sm text-gray-900">{{ $egreso->descripcion }}</div>
+                                <div class="text-sm text-gray-500">{{ $egreso->fecha_registro }}</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900">{{ $ingreso->valor }}</div>
+                                <div class="text-sm text-gray-900">{{ $egreso->valor }}</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900">{{ $ingreso->observaciones }}</div>
+                                <div class="text-sm text-gray-900">{{ $egreso->observaciones }}</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
 
                                 {{-- @livewire('editar-ingreso', ['ingreso' => $ingreso->id]) --}}
-                                <x-jet-button wire:click="edit({{ $ingreso->id }})">
+                                <x-jet-button wire:click="edit({{ $egreso->id }})">
                                     Editar
                                 </x-jet-button>
 
-                                <x-button-danger wire:click="delete({{ $ingreso->id }})" wire:loading.attr="disabled" wiere:target="delete({{ $ingreso->id }})">
+                                <x-button-danger wire:click="delete({{ $egreso->id }})" wire:loading.attr="disabled">
                                     Eliminar
                                 </x-button-danger>
                             </td>
@@ -58,9 +58,9 @@
                     @endforeach
                 </tbody>
             </table>
-            @if ($ingresos->hasPages())
+            @if ($egresos->hasPages())
                 <div class="px-6 py-3">
-                    {{ $ingresos->links() }}
+                    {{ $egresos->links() }}
                 </div>
             @endif
         @else
@@ -72,21 +72,21 @@
 
     <x-jet-dialog-modal wire:model="open_modal">
         <x-slot name="title">
-            Editar Ingreso
+            Editar Egreso
         </x-slot>
         <x-slot name="content">
             <div class="my-2 flex flex-col items-center">
-                <x-jet-input wire:model="ingreso.valor" type="number" class="mt-2 w-full" />
-                <textarea class="text-area mt-2 w-full" wire:model="ingreso.observaciones" placeholder="Ingrese Observación"></textarea>
-                <select class="text-area mt-2 w-full" name="" id="" wire:model="ingreso.id_tipo_ingreso">
+                <x-jet-input wire:model="egreso.valor" type="number" class="mt-2 w-full" />
+                <textarea class="text-area mt-2 w-full" wire:model="egreso.observaciones" placeholder="Ingrese Observación"></textarea>
+                <select class="text-area mt-2 w-full" name="" id="" wire:model="egreso.id_tipo_egreso">
                     <option value="" selected disabled>Seleccione tipo ingreso</option>
-                    @foreach ($tipoIngresos as $tipoIngreso)
-                        <option value="{{ $tipoIngreso->id }}">{{ $tipoIngreso->descripcion }}</option>
+                    @foreach ($tipoEgresos as $tipoEgreso)
+                        <option value="{{ $tipoEgreso->id }}">{{ $tipoEgreso->descripcion }}</option>
                     @endforeach
 
                 </select>
                 <div class="mt-2">
-                    <input type="date" class="text-area" wire:model="ingreso.fecha_registro">
+                    <input type="date" class="text-area" wire:model="egreso.fecha_registro">
                 </div>
 
             </div>
