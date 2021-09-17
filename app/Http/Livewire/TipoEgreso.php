@@ -15,7 +15,7 @@ class TipoEgreso extends Component
     public $search = '';
     public $open_modal = false;
 
-    protected $listeners = ['render' => 'render'];
+    protected $listeners = ['render' => 'render', 'delete'];
 
     protected $rules = [
         'tipoEgreso.descripcion' => 'required'
@@ -33,7 +33,9 @@ class TipoEgreso extends Component
     }
 
     public function delete(ModelsTipoEgreso $tipoEgreso){
+
         $tipoEgreso->delete();
+        
     }
 
     public function render(){

@@ -14,6 +14,8 @@ class CrearIngreso extends Component
     public $valor;
     public $fechaRegitro;
 
+    protected $listeners = ['save'];
+
     protected $rules = [
         'idTipoIngreso' => 'required',
         'valor' => 'required|numeric|min:1',

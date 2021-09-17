@@ -3,7 +3,7 @@
     <div class="my-2 flex flex-col items-center">
 
         <x-jet-label class="pt-2 font-bold" value="😨 Resgitre un nuevo Egreso 😨" />
-        
+
         <x-jet-input type="number" wire:model="valor" class="mt-2" placeholder="Digite valor ingreso" />
 
         <textarea class="text-area mt-2" wire:model="observaciones" placeholder="Ingrese Observación">
@@ -21,15 +21,30 @@
         </div>
 
         <a class="my-2 underline font-bold" href=" {{ route('tipo-egresos') }} ">Ver tipos de Egresos</a>
-        
+
         <x-jet-input-error for="valor" />
         <x-jet-input-error for="idTipoEgreso" />
         <x-jet-input-error for="fechaRegitro" />
 
-        <x-jet-button class="mt-2" wire:click="save">
+        <x-jet-button class="mt-2" wire:click="$emit('createEgreso')">
             Guardar
         </x-jet-button>
 
     </div>
+
+    @push('js')
+        <script>
+            Livewire.on('createEgreso', () => {
+                Livewire.emitTo('crear-egreso', 'save')
+                Swal.fire({
+                    position: 'top-center',
+                    icon: 'success',
+                    title: 'Egreso Guardado',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            })
+        </script>
+    @endpush
 
 </div>

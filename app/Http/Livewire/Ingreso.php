@@ -17,7 +17,7 @@ class Ingreso extends Component
     public $ingreso;
     public $tipoIngresos = [];
 
-    protected $listeners = ['render', 'render'];
+    protected $listeners = ['render', 'delete'];
 
     protected $rules = [
         'ingreso.valor' => 'required|min:1',

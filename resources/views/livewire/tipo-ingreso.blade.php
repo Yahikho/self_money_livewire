@@ -40,7 +40,7 @@
                                 </x-jet-button>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                <x-button-danger wire:click="delete({{ $tipoIngreso }})" wire:loading.attr="disabled">
+                                <x-button-danger wire:click="$emit('destroy', {{ $tipoIngreso->id }})" wire:loading.attr="disabled">
                                     Eliminar
                                 </x-button-danger>
                             </td>
@@ -80,5 +80,34 @@
             </x-jet-button>
         </x-slot>
     </x-jet-dialog-modal>
+
+    @push('js')
+
+    <script>
+        Livewire.on('destroy', idTipoEgreso => {
+            Swal.fire({
+                title: '¿Esta segur@?',
+                text: "No puedes revertir los cambios",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Eliminar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    Livewire.emitTo('tipo-ingreso', 'delete', idTipoEgreso)
+
+                    Swal.fire(
+                        'Eliminado!',
+                        'Tipo de Ingreso eliminado.',
+                        'success'
+                    )
+                }
+            })
+        })
+    </script>
+    @endpush
 
 </div>
