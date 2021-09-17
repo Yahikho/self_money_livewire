@@ -20,6 +20,7 @@ class EditarIngreso extends Component {
 
     public function render()
     {
-        return view('livewire.editar-ingreso');
+        $ingreso = Ingreso::where('id', '=', $this->ingreso);
+        return view('livewire.editar-ingreso', compact('ingreso'));
     }
 }
