@@ -87,7 +87,7 @@
                 </div>
             </div>
             <div class="bg-white shadow-lg text-center rounded-lg">
-                <div id="element" class=""></div>
+                <div id="element" class="flex x-auto" wire:ignore></div>
             </div>
         </div>
     </div>

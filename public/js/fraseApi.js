@@ -5,5 +5,7 @@ fetch(API_URL)
     .then(data => {
         let element = document.getElementById('element')
         
-        element.innerHTML = `<p class="text-gray-500 px-4 py-4">${data.content}</p>`
+        element.innerHTML = `<p class="text-gray-500 px-6 py-6 ">${data.content}</p>`
+
+        Livewire.emitTo('show-home','render')
     })
