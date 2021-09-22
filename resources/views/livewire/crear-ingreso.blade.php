@@ -27,27 +27,10 @@
         <x-jet-input-error for="idTipoIngreso" />
         <x-jet-input-error for="fechaRegitro" />
 
-        <x-jet-button class="mt-2" wire:click="$emit('createIngreso')">
+        <x-jet-button class="mt-2" wire:click="save()">
             Guardar
         </x-jet-button>
 
     </div>
-
-    @push('js')
-        <script>
-            Livewire.on('createIngreso', () => {
-
-                Livewire.emitTo('crear-ingreso','save')
-
-                Swal.fire({
-                    position: 'top-center',
-                    icon: 'success',
-                    title: 'Ingreso Guardado',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-            })
-        </script>
-    @endpush
 
 </div>

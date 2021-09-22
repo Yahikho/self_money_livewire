@@ -4,11 +4,21 @@
             <p class="text-gray-500 mx-auto font-bold">Egresos</p>
         </div>
         <div class="pt-5 px-5 flex items-center ">
-            <x-jet-input type="text" wire:model="search" class="flex-1" placeholder="Ingrese dato de busqueda" />
-            <div>
-                <input type="date" class="text-area" wire:model="fechaInicio">
-                <input type="date" class="text-area" wire:model="fechaFin">
-            </div>
+            <x-jet-input type="text" wire:model="search" class="flex-1"
+                placeholder="Ingrese descripción egereso para buscar" />
+        </div>
+        <div class="px-5 py-3 flex items-center gap-4">
+            <x-jet-label>
+                Ingrese Fecha Inicio
+            </x-jet-label>
+            <input type="date" class="text-area" wire:model="fechaInicio">
+            <x-jet-label>
+                Ingrese Fecha Fin
+            </x-jet-label>
+            <input type="date" class="text-area" wire:model="fechaFin">
+            <x-jet-button wire:click="limpiarFechas">
+                Limpiar Fechas
+            </x-jet-button>
         </div>
     </div>
     <x-table>

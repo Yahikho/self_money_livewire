@@ -26,25 +26,9 @@
         <x-jet-input-error for="idTipoEgreso" />
         <x-jet-input-error for="fechaRegitro" />
 
-        <x-jet-button class="mt-2" wire:click="$emit('createEgreso')">
+        <x-jet-button class="mt-2" wire:click="save()">
             Guardar
         </x-jet-button>
 
     </div>
-
-    @push('js')
-        <script>
-            Livewire.on('createEgreso', () => {
-                Livewire.emitTo('crear-egreso', 'save')
-                Swal.fire({
-                    position: 'top-center',
-                    icon: 'success',
-                    title: 'Egreso Guardado',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-            })
-        </script>
-    @endpush
-
 </div>
