@@ -15,3 +15,6 @@ Proyecto creado con Laravel 8, livewire y Jetstream, es una libreta digital que 
 - Ejecuta las migraciones **php artisan migrate**
 
 - Ejecuta las semillas **php artisan db:seed**
+
+![Captura](https://user-images.githubusercontent.com/50774406/134374658-86f31aa6-32ba-444d-b117-0f404f5e754f.JPG)
+
