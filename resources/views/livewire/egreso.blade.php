@@ -5,6 +5,10 @@
         </div>
         <div class="pt-5 px-5 flex items-center ">
             <x-jet-input type="text" wire:model="search" class="flex-1" placeholder="Ingrese dato de busqueda" />
+            <div>
+                <input type="date" class="text-area" wire:model="fechaInicio">
+                <input type="date" class="text-area" wire:model="fechaFin">
+            </div>
         </div>
     </div>
     <x-table>
@@ -50,7 +54,8 @@
                                     Editar
                                 </x-jet-button>
 
-                                <x-button-danger wire:click="$emit('destroy', {{ $egreso->id }})" wire:loading.attr="disabled">
+                                <x-button-danger wire:click="$emit('destroy', {{ $egreso->id }})"
+                                    wire:loading.attr="disabled">
                                     Eliminar
                                 </x-button-danger>
                             </td>
@@ -77,7 +82,8 @@
         <x-slot name="content">
             <div class="my-2 flex flex-col items-center">
                 <x-jet-input wire:model="egreso.valor" type="number" class="mt-2 w-full" />
-                <textarea class="text-area mt-2 w-full" wire:model="egreso.observaciones" placeholder="Ingrese Observación"></textarea>
+                <textarea class="text-area mt-2 w-full" wire:model="egreso.observaciones"
+                    placeholder="Ingrese Observación"></textarea>
                 <select class="text-area mt-2 w-full" name="" id="" wire:model="egreso.id_tipo_egreso">
                     <option value="" selected disabled>Seleccione tipo ingreso</option>
                     @foreach ($tipoEgresos as $tipoEgreso)
@@ -129,5 +135,5 @@
             })
         </script>
     @endpush
-    
+
 </div>

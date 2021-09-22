@@ -18,6 +18,9 @@ class Egreso extends Component
     public $egreso;
     public $tipoEgresos = [];
 
+    public $fechaInicio;
+    public $fechaFin;
+
     protected $listeners = ['render', 'delete'];
 
     protected $rules = [
@@ -56,6 +59,7 @@ class Egreso extends Component
                                     ->select('egresos.id','egresos.fecha_registro', 'egresos.observaciones','tipo_egresos.descripcion', 'egresos.valor')
                                     ->where('egresos.user_id', '=', auth()->user()->id)
                                     ->where('tipo_egresos.descripcion', 'like', '%' . $this->search . '%' )
+                                    ->orWhereBetween('egresos.fecha_registro', [$this->fechaInicio, $this->fechaFin])
                                     ->orderBy('fecha_registro', 'desc')
                                     ->paginate(10);
 

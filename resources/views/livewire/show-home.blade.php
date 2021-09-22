@@ -19,8 +19,20 @@
                     </div>
                     <hr class="mt-2">
                     <div class="flex flex-col items-center">
-                        <p class="font-bold py-4 text-red-500">Principales Egresos</p>
-
+                        <p class="font-bold py-4 text-gray-500">Ultimos 7 Dias</p>
+                        <div>
+                            <p class="text-lg font-semibold">Ingresos: <span class="text-green-500 font-bold">
+                                    {{ $data['ingresosUltimaSemana'] }} </span></p>
+                            <p class="text-lg font-semibold">Egresos: <span class="text-red-500 font-bold">
+                                    {{ $data['egresosUltimaSemana'] }} </span></p>
+                            @if ($data['totalUltimaSemana'] < 0)
+                                <p class="text-lg font-semibold mt-6">Diferencia <span class="text-red-500 font-bold">
+                                        {{ $data['totalUltimaSemana'] }} </span> sobre los ingresos</p>
+                            @else
+                                <p class="text-lg font-semibold mt-6">Tu saldo es: <span class="text-green-500 font-bold">
+                                        {{ $data['totalUltimaSemana'] }} </span> sobre los ingresos </p>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
